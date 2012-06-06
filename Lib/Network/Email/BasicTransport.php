@@ -10,7 +10,7 @@ App::uses('HttpSocket', 'Network/Http');
  * @author Brad Koch <bradkoch2007@gmail.com>
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-class MailgunBasicTransport extends AbstractTransport {
+class BasicTransport extends AbstractTransport {
 
 /**
  * Configurations

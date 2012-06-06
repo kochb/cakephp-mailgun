@@ -9,7 +9,7 @@
  * @author Brad Koch <bradkoch2007@gmail.com>
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-class MailgunCurlTransport extends AbstractTransport {
+class CurlTransport extends AbstractTransport {
 
 /**
  * Configurations
