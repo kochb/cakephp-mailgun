@@ -27,7 +27,7 @@ class CurlTransport extends AbstractTransport {
 	public function send(CakeEmail $email) {
         $post = array();
         $post_preprocess = array_merge(
-            $email->getHeaders(array('from', 'sender', 'replyTo', 'readReceipt', 'returnPath', 'to', 'cc', 'bcc')),
+            $email->getHeaders(array('from', 'sender', 'replyTo', 'readReceipt', 'returnPath', 'to', 'cc', 'bcc', 'subjects')),
             array(
                 'text' => $email->message(CakeEmail::MESSAGE_TEXT),
                 'html' => $email->message(CakeEmail::MESSAGE_HTML)
