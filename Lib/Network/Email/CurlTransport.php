@@ -49,9 +49,17 @@ class CurlTransport extends AbstractTransport {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
         $response = curl_exec($ch);
+        if ($response === false) {
+            throw new SocketException("Curl had an error.  Message: " . curl_error($ch), 500);
+        }
 
-        CakeLog::write(LOG_ERROR, $response);
+        $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($http_status != 200) {
+            throw new SocketException("Mailgun request failed.  Status: $http_status, Response: $response", 500);
+        }
+
         curl_close($ch);
+
         return array(
             'headers' => $this->_headersToString($email->getHeaders(), PHP_EOL),
             'message' => implode(PHP_EOL, $email->message())
