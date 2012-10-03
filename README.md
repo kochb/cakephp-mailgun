@@ -13,7 +13,7 @@ To enable the transport, add the following information to your Config/email.php:
     class EmailConfig {
         public $mailgun = array(
             'transport' => 'Mailgun.Basic',
-            'domain'    => 'my-mailgun-domain.com',
+            'mailgun_domain'    => 'my-mailgun-domain.com',
             'api_key'   => 'MY_MAILGUN_API_KEY'
         );
     }
