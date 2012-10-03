@@ -28,7 +28,7 @@ class BasicTransport extends AbstractTransport {
 	public function send(CakeEmail $email) {
         $http = new HttpSocket();
         
-        $url = 'https://api.mailgun.net/v2/' . $this->_config['domain'] . '/messages';
+        $url = 'https://api.mailgun.net/v2/' . $this->_config['mailgun_domain'] . '/messages';
         $headers = $email->getHeaders();
         $data = array_merge(
             $headers,
