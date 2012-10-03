@@ -39,7 +39,7 @@ class CurlTransport extends AbstractTransport {
             }
         }
 
-        $ch = curl_init('https://api.mailgun.net/v2/' . $this->_config['domain'] . '/messages');
+        $ch = curl_init('https://api.mailgun.net/v2/' . $this->_config['mailgun_domain'] . '/messages');
 
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
