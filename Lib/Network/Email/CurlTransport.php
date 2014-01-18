@@ -38,6 +38,14 @@ class CurlTransport extends AbstractTransport {
                 $post[strtolower($k)] = $v;
             }
         }
+		
+		if ($attachments = $email->attachments()) {
+			$i = 1;
+			foreach ($attachments as $attachment) {
+				$post['attachment[' . $i . ']'] = "@" . $attachment["file"];
+				$i++;
+			}
+		}
 
         $ch = curl_init('https://api.mailgun.net/v2/' . $this->_config['mailgun_domain'] . '/messages');
 
